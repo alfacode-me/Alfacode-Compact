@@ -47,20 +47,20 @@ router.get('/news/list/:pagi', (req, res) => {
                             modelUsers.get(item.user, (user) => {
                                 lastest[index].user = user.user;
                             });
+                            res.locals.newsLatest = lastest;
+                            modelNews.random('frontend', (data) => {
+                                var random = data.allNews;
+                                random.forEach(function (item, index) {
+                                    random[index].datetime = moment(random[index].createdAt).locale('id').format('dddd, DD MMM YYYY, hh:mm');
+                                    modelUsers.get(item.user, (user) => {
+                                        random[index].user = user.user;
+                                    });
+                                }, this);
+                                res.locals.newsRandom = random;
+                                res.locals.pageTitle = "Berita";
+                                res.render('frontend/news');
+                            });
                         }, this);
-                        res.locals.newsLatest = lastest;
-                        modelNews.random('frontend', (data) => {
-                            var random = data.allNews;
-                            random.forEach(function (item, index) {
-                                random[index].datetime = moment(random[index].createdAt).locale('id').format('dddd, DD MMM YYYY, hh:mm');
-                                modelUsers.get(item.user, (user) => {
-                                    random[index].user = user.user;
-                                });
-                            }, this);
-                            res.locals.newsRandom = random;
-                            res.locals.pageTitle = "Berita";
-                            res.render('frontend/news');
-                        });
                     });
                 } else {
                     res.render('errors/404');
