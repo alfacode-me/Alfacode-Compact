@@ -1,0 +1,39 @@
+{{!< backend}} 
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Daftar File</h3>
+        <div class="box-tools">
+            <a href="/backend/files/add" class="btn btn-default btn-sm btn-block btn-flat">Tambah File</a>
+        </div>
+    </div>
+    <div class="box-body table-responsive no-padding">
+        <table class="table table-hover table-striped">
+            <tbody>
+                <tr>
+                    <th>Tanggal</th>
+                    <th>Nama File</th>
+                    <th>Pengguna</th>
+                    <th>Download</th>
+                    <th>Deskripsi</th>
+                    <th>Modifikasi</th>
+                </tr>
+                {{#each files}}
+                <tr>
+                    <td>{{this.datetime}}</td>
+                    <td class="truncate">{{this.name}}{{this.ext}}</td>
+                    <td class="truncate">{{this.user.fullname}}</td>
+                    <td><center>{{this.download}}</center></td>
+                    <td class="truncate">{{this.desc}}</td>
+                    <td><center><a href="/backend/files/edit/{{this._id}}" type="button" class="btn btn-sm btn-flat btn-success"><i class="fa fa-edit"></i> Edit</a><button type="button" id="delete-{{this._id}}" onclick="deleted('{{this._id}}')" class="btn btn-sm btn-flat btn-danger" data-loading-text="<i class='fa fa-spinner fa-spin'></i>"><i class="fa fa-trash"></i> Hapus</button></small></center></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="box-footer clearfix">
+        <strong class="pagination-total">Total Data : {{pagi.data}} Baris</strong>
+        <ul class="pagination pagination-sm no-margin pull-right">
+            {{{pagifiles pagi}}}
+        </ul>
+    </div>
+</div>

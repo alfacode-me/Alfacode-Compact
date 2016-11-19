@@ -1,0 +1,22 @@
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Konten</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <p>Terakhir diubah pada <b><i>{{page.datetime}}</i></b> oleh <b><i>{{page.user.fullname}}</i></b></p>
+            <div class="form-group">
+                <textarea id="content" title="content">{{page.content}}</textarea>
+            </div>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <div class="pull-right">
+                <button id="btn-client" class="btn btn-flat btn-primary"><i class="fa fa-send"></i> Terbitkan</button>
+            </div>
+            <a href="/backend/pages/client" type="reset" class="btn btn-flat btn-default"><i class="fa fa-times"></i> Batal</a>
+        </div>
+        <!-- /.box-footer -->
+    </div>
+</section>

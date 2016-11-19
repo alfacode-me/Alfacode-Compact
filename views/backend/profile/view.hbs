@@ -1,0 +1,43 @@
+{{!< backend}}
+<div class="box box-widget widget-user-2" style="max-width: 500px;margin-right: auto;margin-left: auto;border-radius: 0;">
+            <div class="widget-user-header bg-orange" style="border-radius: 0;">
+              <div class="widget-user-image">
+                <img class="img-circle" style="border: solid 2px azure;" src="/src/backend/img/profile/{{user.img}}" alt="{{user.img}}">
+              </div>
+              <h3 class="widget-user-username">{{user.fullname}}</h3>
+              <h5 class="widget-user-desc">{{user.level}}</h5>
+            </div>
+            <div class="box-footer no-padding">
+              <ul class="nav nav-stacked" style="background-color: azure;">
+                <a href="/backend/profile/edit" class="btn btn-flat btn-block btn-success">Perbarui Profile</a>
+                <li>
+                    <em>Usename</em><br>
+                    <label>@{{user.username}}</label>
+                </li>
+                <li>
+                    <em>Nama Lengkap</em><br>
+                    <label>{{user.fullname}}</label>
+                </li>
+                <li>
+                    <em>Level Pengguna</em><br>
+                    <label>{{user.level}}</label>
+                </li>
+                <li>
+                    <em>Email</em><br>
+                    <label>{{user.email}}</label>
+                </li>
+                <li>
+                    <em>Jenis Kelamin</em><br>
+                    <label>{{user.gender}}</label>
+                </li>
+                <li>
+                    <em>No. Handphone</em><br>
+                    <label>{{user.telp}}</label>
+                </li>
+                <li>
+                    <em>Alamat</em><br>
+                    <label style="white-space: pre;">{{user.address}}</label>
+                </li>
+              </ul>
+            </div>
+</div>

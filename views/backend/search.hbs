@@ -1,0 +1,59 @@
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Berita</h3>
+    </div>
+    <div class="box-body table-responsive no-padding">
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <th>Tanggal</th>
+                    <th>Judul</th>
+                    <th>Penulis</th>
+                    <th>Status</th>
+                    <th>Modifikasi</th>
+                </tr>
+                {{#each news}}
+                <tr>
+                    <td>{{this.datetime}}</td>
+                    <td class="truncate">{{this.title}}</td>
+                    <td class="truncate">{{this.user.fullname}}</td>
+                    <td class="truncate">{{this.status}}</td>
+                    <td style="text-align: center;">
+                        <a href="/backend/news/edit/{{this._id}}" type="button" class="btn btn-sm btn-flat btn-success"><i class="fa fa-edit"></i> Edit</a>
+                        <button type="button" id="delete-{{this._id}}" onclick="deleted('{{this._id}}')" class="btn btn-sm btn-flat btn-danger" data-loading-text="<i class='fa fa-spinner fa-spin'></i>"><i class="fa fa-trash"></i> Hapus</button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Files</h3>
+    </div>
+    <div class="box-body table-responsive no-padding">
+        <table class="table table-hover table-striped">
+            <tbody>
+                <tr>
+                    <th>Tanggal</th>
+                    <th>Nama File</th>
+                    <th>Pengguna</th>
+                    <th>Download</th>
+                    <th>Deskripsi</th>
+                    <th>Modifikasi</th>
+                </tr>
+                {{#each files}}
+                <tr>
+                    <td>{{this.datetime}}</td>
+                    <td class="truncate">{{this.name}}{{this.ext}}</td>
+                    <td class="truncate">{{this.user.fullname}}</td>
+                    <td><center>{{this.download}}</center></td>
+                    <td class="truncate">{{this.desc}}</td>
+                    <td><center><a href="/backend/files/edit/{{this._id}}" type="button" class="btn btn-sm btn-flat btn-success"><i class="fa fa-edit"></i> Edit</a><button type="button" id="delete-{{this._id}}" onclick="deleted('{{this._id}}')" class="btn btn-sm btn-flat btn-danger" data-loading-text="<i class='fa fa-spinner fa-spin'></i>"><i class="fa fa-trash"></i> Hapus</button></small></center></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>

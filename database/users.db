@@ -1,0 +1,2 @@
+{"address":"Bondo 003/005, Bangsri, Jepara.","email":"email@surya.me","fullname":"Surya Handoko Putra","gender":"Laki-laki","img":"SJ4LZv1AczIZj0Hv.jpg","level":"Administrator","password":"3d6222b9be7d946dcc72","telp":"085712608008","username":"alfacode","_id":"SJ4LZv1AczIZj0Hv","createdAt":{"$$date":1478956307504},"updatedAt":{"$$date":1478993572425}}
+{"$$indexCreated":{"fieldName":"username","unique":true,"sparse":false}}

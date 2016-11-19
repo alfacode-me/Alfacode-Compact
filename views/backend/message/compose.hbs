@@ -1,0 +1,63 @@
+<section class="content">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="/backend/message/inbox" class="btn btn-primary btn-block margin-bottom">Kembali</a>
+            <div class="box box-solid">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Folder</h3>
+                    <div class="box-tools">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                    </div>
+                </div>
+                <div class="box-body no-padding">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="/backend/message/inbox"><i class="fa fa-inbox"></i> Kotak Masuk<span class="label label-primary pull-right">12</span></a></li>
+                        <li><a href="/backend/message/outbox"><i class="fa fa-envelope-o"></i> Kotak Keluar</a></li>
+                        <li><a href="/backend/message/daft"><i class="fa fa-file-text-o"></i> Daftar</a></li>
+                    </ul>
+                </div>
+                <!-- /.box-body -->
+            </div>
+            <!-- /. box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-9">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Buat Pesan Baru</h3>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Kepada :">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Subyek:">
+                    </div>
+                    <div class="form-group">
+                        <textarea id="content" name="content"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="btn btn-default btn-file">
+                            <i class="fa fa-paperclip"></i> Lampiran
+                            <input type="file" name="attachment">
+                        </div>
+                        <p class="help-block">Max. 24MB</p>
+                    </div>
+                </div>
+                <!-- /.box-body -->
+                <div class="box-footer">
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-flat btn-default"><i class="fa fa-pencil"></i> Simpan di Daftar</button>
+                        <button type="submit" class="btn btn-flat btn-primary"><i class="fa fa-envelope-o"></i> Kirim</button>
+                    </div>
+                    <button type="reset" class="btn btn-flat btn-default"><i class="fa fa-times"></i> Batal</button>
+                </div>
+                <!-- /.box-footer -->
+            </div>
+            <!-- /. box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+</section>

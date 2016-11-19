@@ -1,0 +1,91 @@
+<header class="main-header" data-pg-collapsed>
+    <!-- Logo -->
+    <a href="/backend" class="logo">
+        <!-- mini logo for sidebar mini 50x50 pixels -->
+        <span class="logo-mini"><b>CP</b>A</span>
+        <!-- logo for regular state and mobile devices -->
+        <span class="logo-lg"><b>COMP</b>ACT</span>
+    </a>
+    <!-- Header Navbar: style can be found in header.less -->
+    <nav class="navbar navbar-static-top">
+        <!-- Sidebar toggle button-->
+        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button"><span class="sr-only">Toggle navigation</span></a>
+        <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+                {{!notifications notification}}
+                <!-- Notifications: style can be found in dropdown.less -->
+                <!--<li class="dropdown notifications-menu">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell-o"></i><span class="label label-warning">10</span></a>-->
+                    <!--<ul class="dropdown-menu">-->
+                        <!--<li class="header">You have 10 notifications</li>-->
+                        <!--<li>-->
+                            <!--&lt;!&ndash; inner menu: contains the actual data &ndash;&gt;-->
+                            <!--<ul class="menu">-->
+                                <!--<li>-->
+                                    <!--<a href="#"><i class="fa fa-users text-aqua"></i> 5 new members joined today</a>-->
+                                <!--</li>-->
+                            <!--</ul>-->
+                        <!--</li>-->
+                        <!--<li class="footer">-->
+                            <!--<a href="#">View all</a>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <li>
+                    <a href="/" target="_blank"><i class="fa fa-rocket"></i> Frontend</a>
+                </li>
+                <!-- User Account: style can be found in dropdown.less -->
+                <li class="dropdown user user-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="/src/backend/img/profile/{{user.img}}" class="user-image" alt="User Image">
+                        <span class="hidden-xs">{{user.username}}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <!-- User image -->
+                        <li class="user-header">
+                            <img src="/src/backend/img/profile/{{user.img}}" class="img-circle" alt="User Image">
+                            <p>
+                                {{user.fullname}}
+                                <small><strong>{{user.email}}</strong></small>
+                                <small>@{{user.username}}</small>
+                            </p>
+                        </li>
+                        <!-- Menu Footer-->
+                        <li class="user-footer">
+                            <div class="row">
+                                <div class="col-xs-6">
+                                    <a id="profile-top" href="/backend/profile/view" class="btn btn-default btn-block btn-flat">Profile</a>
+                                </div>
+                                <div class="col-xs-6">
+                                    <button id="logout-top" class="btn btn-default btn-block btn-flat" data-loading-text="<i class='mdi mdi-rotate-right fa-spin'></i>">Keluar</button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<script>
+    $(document).ready(function() {
+        $('#logout-top').click(function() {
+            $('#logout-top').button('loading');
+            $.post("/auth/logout", function(data) {
+                if (data.status == 1) {
+                    swal({
+                        type: 'success',
+                        title: 'Berhasil keluar !',
+                        text: 'Klik "Lanjutkan !" untuk memuat halaman..',
+                        confirmButtonText: 'Lanjutkan !',
+                        allowEscapeKey: false,
+                        allowOutsideClick: false
+                    }).then(function() {
+                        window.location = "/auth/login"
+                    })
+                }
+            })
+        })
+    })
+</script>

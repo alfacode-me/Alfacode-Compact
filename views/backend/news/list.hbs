@@ -1,0 +1,40 @@
+{{!< backend}} 
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Daftar Berita</h3>
+        <div class="box-tools">
+            <a href="/backend/news/create" class="btn btn-default btn-sm btn-block btn-flat">Buat Berita</a>
+        </div>
+    </div>
+    <div class="box-body table-responsive no-padding">
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <th>Tanggal</th>
+                    <th>Judul</th>
+                    <th>Penulis</th>
+                    <th>Status</th>
+                    <th>Modifikasi</th>
+                </tr>
+                {{#each news}}
+                <tr>
+                    <td>{{this.datetime}}</td>
+                    <td class="truncate">{{this.title}}</td>
+                    <td class="truncate">{{this.user.fullname}}</td>
+                    <td class="truncate">{{this.status}}</td>
+                    <td style="text-align: center;">
+                        <a href="/backend/news/edit/{{this._id}}" type="button" class="btn btn-sm btn-flat btn-success"><i class="fa fa-edit"></i> Edit</a>
+                        <button type="button" id="delete-{{this._id}}" onclick="deleted('{{this._id}}')" class="btn btn-sm btn-flat btn-danger" data-loading-text="<i class='fa fa-spinner fa-spin'></i>"><i class="fa fa-trash"></i> Hapus</button>
+                    </td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="box-footer clearfix">
+        <strong class="pagination-total">Total Data : {{pagi.data}} Baris</strong>
+        <ul class="pagination pagination-sm no-margin pull-right">
+            {{{paginews pagi}}}
+        </ul>
+    </div>
+</div>

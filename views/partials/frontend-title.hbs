@@ -1,0 +1,17 @@
+<!--page title start-->
+<section class="page-title page-title-bg page-title-center ptb-90" style="padding:50px 0">
+        <div class="container">
+            <h2 class="text-bold white-text font-40">{{pageTitle}}</h2>
+            <ol class="breadcrumb">
+                <li><a href="/">Home</a></li>
+                {{#if titleFiles}}
+                <li><a href="/files">Files</a></li>
+                {{/if}}
+                {{#if titleNews}}
+                <li><a href="/news">Berita</a></li>
+                {{/if}}
+                <li class="active">{{pageTitle}}</li>
+            </ol>
+        </div>
+</section>
+<!--page title end-->

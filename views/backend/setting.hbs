@@ -1,0 +1,26 @@
+{{!< backend}}
+<div class="box box-primary mini-widget">
+    <div class="box-header with-border">
+        <h3 class="box-title">Pengaturan</h3>
+    </div>
+    <form id="formSave" method="post" action="/backend/profile/save" enctype="multipart/form-data">
+        <div class="box-body">
+            <div class="form-group">
+                <label>Nama Website</label>
+                <input id="nameWebsite" type="text" class="form-control" placeholder="Nama Website" value="{{setting.nameWebsite}}">
+            </div>
+        </div>
+    </form>
+    <div class="box-footer">
+        <div class="row">
+            <div class="col-xs-6">
+                <a id="cancel" href="/backend/setting" class="btn btn-flat btn-block btn-danger">Batal</a>
+            </div>
+            <div class="col-xs-6">
+                <button id="setting-save" class="btn btn-primary btn-block btn-flat"
+                        data-loading-text="<i class='fa fa-spinner fa-spin'></i>">Simpan
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

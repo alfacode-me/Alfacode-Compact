@@ -1,0 +1,25 @@
+<section class="content">
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Edit Berita</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="form-group">
+                <input id="title" class="form-control" value="{{news.title}}" placeholder="Judul">
+            </div>
+            <div class="form-group">
+                <textarea id="content" name="content">{{news.content}}</textarea>
+            </div>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <div class="pull-right">
+                <button id="editsave" onclick="editsave('{{news._id}}')" type="button" class="btn btn-flat btn-success"><i class="fa fa-pencil"></i> Simpan di Daftar</button>
+                <button id="editpublish" onclick="editpublish('{{news._id}}')" type="submit" class="btn btn-flat btn-primary"><i class="fa fa-send"></i> Terbitkan</button>
+            </div>
+            <a type="reset" href="/backend/news/list" class="btn btn-flat btn-default"><i class="fa fa-times"></i> Batal</a>
+        </div>
+        <!-- /.box-footer -->
+    </div>
+</section>

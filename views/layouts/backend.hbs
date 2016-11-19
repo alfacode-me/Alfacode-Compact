@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{{title}} | Compact</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Compact">
+        <script type="text/javascript" src="/src/backend/plugins/pace/pace.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="/src/backend/plugins/pace/themes/yellow/pace-theme-minimal.css">
+        <link type="text/css" rel="stylesheet" href="/src/backend/bootstrap/css/bootstrap.min.css" media="screen,projection" />
+        <link type="text/css" rel="stylesheet" href="/src/backend/css/skins/admin.min.css">
+        <link type="text/css" rel="stylesheet" href="/src/backend/plugins/font-awesome/css/font-awesome.min.css">
+        <link type="text/css" rel="stylesheet" href="/src/backend/plugins/iCheck/square/blue.css">
+        <link type="text/css" rel="stylesheet" href="/src/backend/plugins/sweetalert2/sweetalert2.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <link type="text/css" rel="stylesheet" href="/src/backend/css/skins/_all-skins.min.css">
+        <link type="text/css" rel="stylesheet" href="/src/backend/css/core.css" media="screen,projection">
+        {{#if plugin.froalaEditor}}
+        <link href="/src/backend/plugins/froala-editor/css/froala_editor.min.css" rel="stylesheet" type="text/css" />
+        <link href="/src/backend/plugins/froala-editor/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="/src/backend/plugins/froala-editor/css/plugins/char_counter.css">
+        <link rel="stylesheet" href="/src/backend/plugins/froala-editor/css/plugins/code_view.css">
+        <link rel="stylesheet" href="/src/backend/plugins/froala-editor/css/plugins/colors.css">
+        <link rel="stylesheet" href="/src/backend/plugins/froala-editor/css/plugins/emoticons.css">
+        <link rel="stylesheet" href="/src/backend/plugins/froala-editor/css/plugins/fullscreen.css">
+        <link rel="stylesheet" href="/src/backend/plugins/froala-editor/css/plugins/image.css">
+        <link rel="stylesheet" href="/src/backend/plugins/froala-editor/css/plugins/image_manager.css">
+        <link rel="stylesheet" href="/src/backend/plugins/froala-editor/css/plugins/line_breaker.css">
+        <link rel="stylesheet" href="/src/backend/plugins/froala-editor/css/plugins/quick_insert.css">
+        <link rel="stylesheet" href="/src/backend/plugins/froala-editor/css/plugins/table.css">
+        <link rel="stylesheet" href="/src/backend/plugins/froala-editor/css/plugins/video.css">
+        <!-- Include the fonts. -->
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700,700italic&subset=latin,vietnamese,latin-ext,cyrillic,cyrillic-ext,greek-ext,greek' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,greek,greek-ext,vietnamese,cyrillic-ext,cyrillic,latin-ext' rel='stylesheet' type='text/css'>
+        {{/if}}
+        <script type="text/javascript" src="/src/backend/plugins/jquery/jquery-3.1.0.min.js"></script>
+    </head>
+    <body class="hold-transition skin-purple layout-boxed sidebar-mini">
+         <div class="wrapper">
+             {{> topbar}}
+             {{> leftbar}}
+             <div class="content-wrapper" style="min-height: 976px;">
+                {{> page-header}}
+                <section class="content">
+                {{{body}}}
+                </section>
+            </div>
+             {{> footer}}
+             <div class="control-sidebar-bg"></div>
+         </div>
+
+        <script type="text/javascript" src="/src/backend/plugins/sweetalert2/sweetalert2.min.js"></script>
+        <script type="text/javascript" src="/src/backend/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/fastclick/fastclick.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/iCheck/icheck.min.js"></script>
+        <script type="text/javascript" src="/src/backend/js/app/app.js"></script>
+        <script type="text/javascript" src="/src/backend/js/core.js"></script>
+        {{#if src.js}}
+        <script type="text/javascript" src="/src/backend/js/{{src.js}}.js"></script>
+        {{/if}}
+        {{#if plugin.froalaEditor}}
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/froala_editor.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/align.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/char_counter.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/code_beautifier.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/code_view.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/colors.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/emoticons.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/entities.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/font_family.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/font_size.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/fullscreen.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/image.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/image_manager.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/inline_style.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/line_breaker.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/link.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/lists.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/paragraph_format.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/paragraph_style.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/quick_insert.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/quote.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/table.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/save.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/url.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/plugins/video.min.js"></script>
+        <script type="text/javascript" src="/src/backend/plugins/froala-editor/js/languages/id.js"></script>
+        {{/if}}
+    </body>
+</html>
