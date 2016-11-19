@@ -1,6 +1,5 @@
 var router = require('express').Router();
 var moment = require('moment');
-var async = require('async');
 var path = require('path');
 var modelNews = require('../../model/news');
 var modelUsers = require('../../model/users');
@@ -69,70 +68,55 @@ router.get('/news/list/:pagi', (req, res) => {
             });
         });
     } else {
-        async.waterfall([
-                (callback) => {
-                    modelNews.count((data) => {
-                        pagi = {};
-                        pagi.data = data.total;
-                        pagi.active = req.params.pagi;
-                        pagi.total = Math.ceil(pagi.data / 5);
-                        pagi.skip = 5 * (pagi.active - 1);
-                        if (pagi.active > 1 && pagi.active > pagi.total) {
-                            pagi.status = false;
-                        } else {
-                            pagi.status = true;
-                        }
-                        res.locals.pagi = pagi;
-                        callback(null);
+        modelNews.count((data) => {
+            pagi = {};
+            pagi.data = data.total;
+            pagi.active = req.params.pagi;
+            pagi.total = Math.ceil(pagi.data / 5);
+            pagi.skip = 5 * (pagi.active - 1);
+            if (pagi.active > 1 && pagi.active > pagi.total) {
+                pagi.status = false;
+            } else {
+                pagi.status = true;
+            }
+            res.locals.pagi = pagi;
+            modelNews.getAll('frontend', res.locals.pagi.skip, (data) => {
+                var allNews = data.allNews;
+                allNews.forEach(function (item, index) {
+                    allNews[index].datetime = moment(allNews[index].createdAt).locale('id').format('dddd, DD MMM YYYY, hh:mm');
+                    modelUsers.get(item.user, (user) => {
+                        allNews[index].user = user.user;
                     });
-                },
-                (callback) => {
-                    modelNews.getAll('frontend', res.locals.pagi.skip, (data) => {
-                        var allNews = data.allNews;
-                        allNews.forEach(function (item, index) {
-                            allNews[index].datetime = moment(allNews[index].createdAt).locale('id').format('dddd, DD MMM YYYY, hh:mm');
+                }, this);
+                res.locals.news = data.allNews;
+                if (res.locals.pagi.status) {
+                    modelNews.getAll('frontend', 0, (data) => {
+                        var lastest = data.allNews;
+                        lastest.forEach(function (item, index) {
+                            lastest[index].datetime = moment(lastest[index].createdAt).locale('id').format('dddd, DD MMM YYYY, hh:mm');
                             modelUsers.get(item.user, (user) => {
-                                allNews[index].user = user.user;
+                                lastest[index].user = user.user;
                             });
                         }, this);
-                        res.locals.news = data.allNews;
-                        callback(null);
-                    });
-                },
-                (callback) => {
-                    if (res.locals.pagi.status) {
-                        modelNews.getAll('frontend', 0, (data) => {
-                            var lastest = data.allNews;
-                            lastest.forEach(function (item, index) {
-                                lastest[index].datetime = moment(lastest[index].createdAt).locale('id').format('dddd, DD MMM YYYY, hh:mm');
+                        res.locals.newsLatest = lastest;
+                        modelNews.random('frontend', (data) => {
+                            var random = data.allNews;
+                            random.forEach(function (item, index) {
+                                random[index].datetime = moment(random[index].createdAt).locale('id').format('dddd, DD MMM YYYY, hh:mm');
                                 modelUsers.get(item.user, (user) => {
-                                    lastest[index].user = user.user;
+                                    random[index].user = user.user;
                                 });
                             }, this);
-                            res.locals.newsLatest = lastest;
-                            modelNews.random('frontend', (data) => {
-                                var random = data.allNews;
-                                random.forEach(function (item, index) {
-                                    random[index].datetime = moment(random[index].createdAt).locale('id').format('dddd, DD MMM YYYY, hh:mm');
-                                    modelUsers.get(item.user, (user) => {
-                                        random[index].user = user.user;
-                                    });
-                                }, this);
-                                res.locals.newsRandom = random;
-                                callback(null);
-                            });
+                            res.locals.newsRandom = random;
+                            res.locals.pageTitle = "Berita";
+                            res.render('frontend/news');
                         });
-                    } else {
-                        res.render('errors/404');
-                        callback(null);
-                    }
+                    });
+                } else {
+                    res.render('errors/404');
                 }
-            ],
-            function (err, result) {
-                res.locals.pageTitle = "Berita";
-                res.render('frontend/news');
-            }
-        );
+            });
+        });
     }
 });
 
