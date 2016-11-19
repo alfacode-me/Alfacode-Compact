@@ -6,7 +6,6 @@
     "start": "nodemon ./bin/www"
   },
   "dependencies": {
-    "async": "^2.1.2",
     "body-parser": "~1.15.1",
     "chance": "^1.0.4",
     "cookie-parser": "~1.4.3",
