@@ -27,9 +27,6 @@ module.exports = (hbs) => {
         var render = "";
         news.forEach((ns) => {
             render = render + `<div class="media">
-                <a class="media-left" href="/news/${ns._id}">
-                    <img src="/src/backend/img/profile/${ns.user.img}" alt="${ns.user.fullname}">
-                </a>
                 <div class="media-body">
                     <h4><a href="/news/${ns._id}">${ns.title}</h4>
                 </div>
